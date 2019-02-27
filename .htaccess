@@ -30,10 +30,9 @@
 # -----------------------------------------------------------------------
 # | 404 Fix: Block Nuisance Requests for Non-Existent Files - New in 2018  
 #   https://perishablepress.com/block-nuisance-requests
+#   Comment out, if you don't use Let's Encrypt, because Let's Encrypt is using .well-known
 # -----------------------------------------------------------------------
 
-# Comment it out, if you don't use Let's Encrypt, because Let's Encrypt is using .well-known
-# Wenn Du Let's Encrypt nutzt, kannst Du das nicht verwenden, weil Let's Encrypt .well-known nutzt.
 #<IfModule mod_alias.c>
 #	RedirectMatch 403 (?i)\.php\.suspected
 #	RedirectMatch 403 (?i)\.(git|well-known)
