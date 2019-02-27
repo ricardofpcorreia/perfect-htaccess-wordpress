@@ -364,3 +364,38 @@ RewriteRule ^wp-includes/theme-compat/ - [F,L]
  Deny from all
 </Files>
 
+# -----------------------------------------------------------------------------
+#   HTTP SECURITY HEADER | Test on: https://securityheaders.com | UPDATE 2019
+#   https://scotthelme.co.uk/hardening-your-http-response-headers
+# -----------------------------------------------------------------------------
+
+## No-Referrer-Header
+<IfModule mod_headers.c>
+    Header set Referrer-Policy "no-referrer"
+</IfModule>
+
+## X-FRAME-OPTIONS-Header
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "sameorigin"
+</IfModule>
+
+## X-XSS-PROTECTION-Header
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+## X-Content-Type-Options-Header
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+## Strict-Transport-Security-Header - if you are using https on your website, comment this block out
+#<IfModule mod_headers.c>
+#   Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+#</IfModule>
+
+## This prevents that false issued certificates for this website can be used unnoticed. (Experimental)
+<IfModule mod_headers.c>
+   Header set Expect-CT "enforce, max-age=21600"	
+</IfModule>
+
