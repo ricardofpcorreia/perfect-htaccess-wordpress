@@ -5,3 +5,14 @@
 # @Author URI: https://ricardocorreia.me
 # License: GNU General Public License v3 or later
 ########################################################################
+
+
+# ----------------------------------------------------------------------
+# Rewrite from HTTP to HTTPS - comment it out to use
+# ----------------------------------------------------------------------
+
+#<IfModule mod_rewrite.c>
+#RewriteEngine On
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#</IfModule>
