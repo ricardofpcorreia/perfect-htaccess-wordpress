@@ -354,3 +354,13 @@ RewriteRule ^wp-includes/theme-compat/ - [F,L]
 #require valid-user
 #</Files>
 
+# ----------------------------------------------------------------------
+#   Switch off the security risk XML-RPC interface completely
+#   https://digwp.com/2009/06/xmlrpc-php-security/
+# ----------------------------------------------------------------------
+
+<Files xmlrpc.php>
+ Order Deny,Allow
+ Deny from all
+</Files>
+
