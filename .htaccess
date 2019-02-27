@@ -268,3 +268,49 @@ Header append Vary: Accept-Encoding
 	# uncomment/edit/repeat next line to block IPs
 	# Deny from 123.456.789
 </Limit>
+
+# ----------------------------------------------------------------------
+#   Block WordPress files from outside access
+# ----------------------------------------------------------------------	
+
+# No access to the install.php
+<files install.php>
+Order allow,deny
+Deny from all
+</files>
+ 
+# No access to the wp-config.php 
+<files wp-config.php>
+Order allow,deny
+Deny from all
+</files>
+ 
+# No access to the readme.html
+<files readme.html>
+ Order Allow,Deny
+ Deny from all
+ Satisfy all
+</Files>
+ 
+# No error log access 
+<files error_log>
+Order allow,deny
+Deny from all
+</files>
+
+#No access to the .htaccess und .htpasswd
+<FilesMatch "(\.htaccess|\.htpasswd)">
+  Order deny,allow
+  Deny from all
+</FilesMatch>
+
+# Block access to includes folder
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^wp-admin/includes/ - [F,L]
+RewriteRule !^wp-includes/ - [S=3]
+RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+RewriteRule ^wp-includes/theme-compat/ - [F,L]
+</IfModule>
