@@ -314,3 +314,15 @@ RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
 RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
 RewriteRule ^wp-includes/theme-compat/ - [F,L]
 </IfModule>
+
+# ----------------------------------------------------------------------
+# | Blocking the »ReallyLongRequest« Bandit - New in 2018  
+#   https://perishablepress.com/blocking-reallylongrequest-bandit/
+# ----------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_METHOD} .* [NC]
+    RewriteCond %{THE_REQUEST}  (YesThisIsAReallyLongRequest|ScanningForResearchPurpose) [NC,OR]
+    RewriteCond %{QUERY_STRING} (YesThisIsAReallyLongRequest|ScanningForResearchPurpose) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
