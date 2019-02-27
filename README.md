@@ -18,4 +18,4 @@ This .htaccess contains:
 - The WordPress standard rules
 
 
-Feel free to help building the best .htaccess possible for Wordpress.
+Feel free to help building the best .htaccess possible for Wordpress. :smiley:
