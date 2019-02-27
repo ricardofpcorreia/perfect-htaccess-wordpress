@@ -1,4 +1,4 @@
-# PerfectHtaccessForWordpress
+# Perfect .htaccess For Wordpress
 .htaccess file created with latest 2019 specification for wordpress security &amp; speed
 
 This .htaccess contains:
