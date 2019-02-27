@@ -399,3 +399,19 @@ RewriteRule ^wp-includes/theme-compat/ - [F,L]
    Header set Expect-CT "enforce, max-age=21600"	
 </IfModule>
 
+# ----------------------------------------------------------------------
+# The original WordPress Rewrite Rules - Do not change anything here, 
+# except you are using a WordPress Multisite
+# ----------------------------------------------------------------------
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+
