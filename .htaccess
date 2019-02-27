@@ -342,3 +342,15 @@ RewriteRule ^wp-includes/theme-compat/ - [F,L]
 # RewriteRule \.(gif|jpe?g?|png)$                             - [F,NC,L]
 #</ifModule>
 
+# ----------------------------------------------------------------------
+#   Protect your WordPress Login with HTTP Authentification
+# ----------------------------------------------------------------------
+
+# If you want to use it, comment it out and set your path to .htpasswd
+#<Files wp-login.php>
+#AuthName "Admin"
+#AuthType Basic
+#AuthUserFile /usr/local/www/apache24/your-path/your-domain.com/.htpasswd 
+#require valid-user
+#</Files>
+
